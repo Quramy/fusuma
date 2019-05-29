@@ -27,10 +27,12 @@ export class AppContainer extends React.Component {
       }
     };
 
-    const { slides, contentsList } = createHtmlSlides(props.slides);
-    this.slides = slides;
+    this.slides = props.slides;
+    // const { slides, contentsList } = createHtmlSlides(props.slides);
+    // this.slides = slides;
     this.params = parsedUrl.searchParams;
-    this.contentsList = contentsList;
+    this.contentsList = [];
+    // this.contentsList = contentsList;
     this.ContentComponent = null;
 
     this.routeMode();
@@ -42,9 +44,9 @@ export class AppContainer extends React.Component {
 
   async componentDidMount() {
     if (this.state.isSidebar) {
-      const {
-        SidebarComponent
-      } = await import(/* webpackChunkName: 'Sidebar', webpackPrefetch: true */ './Sidebar');
+      const { SidebarComponent } = await import(
+        /* webpackChunkName: 'Sidebar', webpackPrefetch: true */ './Sidebar'
+      );
 
       this.setState({ SidebarComponent });
     }

@@ -25,17 +25,19 @@ export class Base extends React.PureComponent {
 
     return (
       <article className={articleClass} id="webslides">
-        {slides.map((slide, i) => (
+        {slides.map(({ default: A }, i) => (
           <section
             key={i /* fix */}
-            className={slide.meta.className}
-            dangerouslySetInnerHTML={{
-              __html:
-                (currentIndex >= i - 5 && currentIndex <= i + 5) || !lazyload
-                  ? slide.context
-                  : '<div />'
-            }}
-          />
+            // className={slide.meta.className}
+            // dangerouslySetInnerHTML={{
+            //   __html:
+            //     (currentIndex >= i - 5 && currentIndex <= i + 5) || !lazyload
+            //       ? slide.context
+            //       : '<div />'
+            // }}
+          >
+            <A />
+          </section>
         ))}
       </article>
     );

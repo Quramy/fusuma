@@ -8,5 +8,8 @@
     "build": "node ../../bin/fusuma build"
   },
   "author": "hiroppy <git@hiroppy.me> (https://hiroppy.me)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.0.20"
+  }
 }

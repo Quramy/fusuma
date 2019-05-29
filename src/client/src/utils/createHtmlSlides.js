@@ -1,7 +1,7 @@
 import React from 'react';
 import { parseAttrs } from './parseAttrs';
 
-export function createHtmlSlides(arr) {
+export async function createHtmlSlides(arr) {
   const res = [];
   const slides = divideSlides(arr);
   const contentsList = [];

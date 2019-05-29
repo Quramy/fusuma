@@ -7,15 +7,16 @@ import './setup/css';
 //   navigator.serviceWorker.register('/service-worker.js');
 // }
 
+import * as React from 'react';
+
 (async () => {
   const slidesInfo = fetchSlides(require.context(process.env.SLIDE_PATH));
-
   createBody(slidesInfo.slides);
 
   if (process.env.TARGET_BLANK) {
-    const {
-      setTargetBlank
-    } = await import(/* webpackPreload: true, webpackChunkName: "target-blank" */ './utils/targetBlank');
+    const { setTargetBlank } = await import(
+      /* webpackPreload: true, webpackChunkName: "target-blank" */ './utils/targetBlank'
+    );
 
     setTargetBlank();
   }

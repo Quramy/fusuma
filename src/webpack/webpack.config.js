@@ -40,9 +40,19 @@ module.exports = ({ meta, slide, extends: fileExtends, internal }) => {
             options: require('../configs/babelrc')(code)
           }
         },
+        // {
+        //   test: /\.md$/,
+        //   use: ['html-loader', 'markdown-loader']
+        // },
         {
-          test: /\.md$/,
-          use: ['html-loader', 'markdown-loader']
+          test: /\.mdx?$/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: require('../configs/babelrc')(code)
+            },
+            '@mdx-js/loader'
+          ]
         },
         {
           test: /\.(png|jpg|gif|svg?)$/,
